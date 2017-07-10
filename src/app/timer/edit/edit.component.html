@@ -1,0 +1,124 @@
+<div class="container">
+<div class="panel-body">
+
+<form [formGroup]="editForm">
+        <h1>Edit an event:</h1><br>        
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label class="control-label" for="name">Name:</label><br>
+                <input class="form-control" id="name" formControlName="name"/>        
+                <span *ngIf="!editForm.get('name').valid && editForm.get('name').touched" class="help-block">
+                    <span *ngIf="editForm.get('name').errors['required']" class="help-block">This is required!</span>
+                </span>
+            </div>        
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12" formArrayName="categories">
+            <div class="row" *ngFor="let category of getCategories(editForm); let i = index" style="margin-top: 10px">
+                <div class="col-xs-1">
+                    <button type="button" class="btn btn-danger" (click)="onDeleteCategory(i)">X</button>
+                </div>
+                <div class="col-xs-11">
+                    Category {{ i+1 }}<br>
+                    <input type="text" class="form-control" [formControlName]="i"/>
+                    <span *ngIf="!editForm.get('categories').valid && editForm.get('categories').controls[i].touched" class="help-block">
+                        <span *ngIf="editForm.get('categories').controls[i].errors['required']" class="help-block">This is required!</span>
+                    </span>
+                </div>
+            </div>
+            <span *ngIf="!editForm.get('categories').valid && getCategories(editForm).length == 0" class="help-block">
+                <span *ngIf="editForm.get('categories').errors['noCategories']" class="help-block">You should add at least one category!</span>
+            </span>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-success" (click)="onAddCategory()">Add Category</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label class="control-label" for="description">Description:</label><br>
+                <textarea class="form-control" id="description" formControlName="description"></textarea>
+                <span *ngIf="!editForm.get('description').valid && editForm.get('description').touched" class="help-block">
+                    <span *ngIf="editForm.get('description').errors['required']" class="help-block">This is required!</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="form-group">
+                    <label>Date:</label><br>
+                <div class="col-md-2">
+                    Day:<input class="form-control" formControlName="day" /> 
+                <span *ngIf="!editForm.get('day').valid && editForm.get('day').touched" class="help-block">
+                    <span *ngIf="editForm.get('day').errors['required']" class="help-block">This is required!</span>
+                </span>
+                </div>
+                <div class="col-md-2">
+                    Month:<input class="form-control" formControlName="month" /> 
+                <span *ngIf="!editForm.get('month').valid && editForm.get('month').touched" class="help-block">
+                    <span *ngIf="editForm.get('month').errors['required']" class="help-block">This is required!</span>
+                </span>
+                </div>
+                <div class="col-md-8">
+                    Year:<input class="form-control" formControlName="year" />
+                <span *ngIf="!editForm.get('year').valid && editForm.get('year').touched" class="help-block">
+                    <span *ngIf="editForm.get('year').errors['required']" class="help-block">This is required!</span>
+                </span>
+                </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-2">
+                <label class="control-label">Start hour:</label><br/>
+                <input class="form-control" formControlName="startHour"/>
+                <span *ngIf="!editForm.get('startHour').valid && editForm.get('startHour').touched" class="help-block">
+                    <span *ngIf="editForm.get('startHour').errors['required']" class="help-block">This is required!</span>
+                </span>
+            </div>
+            <div class="col-md-2">
+                <label class="control-label">Start minute:</label>
+                <input class="form-control" formControlName="startMinute" />
+                <span *ngIf="!editForm.get('startMinute').valid && editForm.get('startMinute').touched" class="help-block">
+                    <span *ngIf="editForm.get('startMinute').errors['required']" class="help-block">This is required!</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-md-2">
+                <label class="control-label">Finish hour:</label><br/>
+                <input class="form-control" formControlName="endHour"/> 
+                <span *ngIf="!editForm.get('endHour').valid && editForm.get('endHour').touched" class="help-block">
+                    <span *ngIf="editForm.get('endHour').errors['required']" class="help-block">This is required!</span>
+                </span>
+            </div>
+            <div class="col-md-2">
+                <label class="control-label">Finish minute:</label>
+                <input class="form-control" formControlName="endMinute" />
+                <span *ngIf="!editForm.get('endMinute').valid && editForm.get('endMinute').touched" class="help-block">
+                    <span *ngIf="editForm.get('endMinute').errors['required']" class="help-block">This is required!</span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!editForm.valid">Save</button>
+    <button class="btn btn-success" (click)="cancelEdit()">Cancel</button><br/><br/>
+    <button class="btn btn-danger" (click)="deleteTimestamp()">Delete</button>
+</form>
+    <div class="savedDiv infoDiv" [ngClass]="{'display': isSaved}">
+        Changes have been saved!
+    </div>
+    <div class="deletedDiv infoDiv" [ngClass]="{'display': isDeleted}">
+        Event has been deleted!
+    </div>
+</div>
+</div>
+<div id="footer">&copy; Timer - Artur Paszkiewicz</div>

@@ -1,0 +1,42 @@
+<div class="container">
+<div class="panel-body">
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Categories</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Start time</th>
+                <th>Finish time</th>
+                <th>Length</th>
+                <th class="text-center">Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of timestamps | range:selectedPage:pageSize; let i = index">
+                <td>{{item.name}}</td>
+                <td>{{item.categories}}</td>
+                <td>{{item.description}}</td>
+                <td class="text-right">{{item.day}}.{{item.month | leadingZero}}.{{item.year}}</td>
+                <td class="text-right">{{item.startHour}}:{{item.startMinute | leadingZero}}</td>
+                <td class="text-right">{{item.endHour == -1 ? 0 : item.endHour}}:{{item.endMinute == -1 ? 0 : (item.endMinute | leadingZero)}}</td>
+                <td class="text-right">{{countPeriod(item)}}</td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-xs btn-success" (click)="onEdit(i)">Edit</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+        <button class="btn btn-success" (click)="refreshTimestamps()">Odśwież</button>
+    </div>
+    <div class="pull-right btn-group">
+            <a *ngFor="let page of timestamps | pageCount:pageSize; let i = index"
+               (click)="selectPage(i + 1)" class="btn btn-default" [ngClass]="{'btn-success': selectedPage == i+1}">
+                {{i + 1}}
+            </a>
+    </div>
+</div>
+</div>
+<div id="footer">&copy; Timer - Artur Paszkiewicz</div>

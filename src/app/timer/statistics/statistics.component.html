@@ -1,0 +1,82 @@
+<div class="container">
+<div class="row">
+    <div class="col-xs-2">
+            <div class="dropdown" appDropdown>
+            <button class="btn greenyellow bord btn-lg dropdown-toggle wide" type="button" id="menu1" data-toggle="dropdown">
+                Name
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" (click)="selectName()" class="btn btn-block btn-info btn-lg bottom">
+                        All
+                    </a>
+                </li>
+                <li role="presentation">
+                    <button role="menuitem" tabindex="-1" *ngFor="let item of getNameOfTimestamps()"
+                    (click)="selectName(item)" class=" btn btn-block btn-info btn-lg"
+                    [ngClass]="{'active': isActiveName(item)}">
+                        {{item}}
+                    </button>
+                </li>
+            </ul>
+            </div>
+            <div class="dropdown" appDropdown>
+            <button class="btn greenyellow bord btn-lg dropdown-toggle wide" type="button" id="menu1" data-toggle="dropdown">
+                Category
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
+                <li role="presentation">
+                    <a role="menuitem" tabindex="-1" (click)="selectCategory()" class="btn btn-block btn-info btn-lg bottom">
+                        All
+                    </a>
+                </li>
+                <li role="presentation">
+                    <button role="menuitem" tabindex="-1" *ngFor="let item of getCategoryOfTimestamps()"
+                    (click)="selectCategory(item)" class=" btn btn-block btn-info btn-lg"
+                    [ngClass]="{'active': isActiveCategory(item)}">
+                        {{item}}
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-xs-10">
+        <div class="panel panel-warning">
+            <div class="panel-heading">Total work time: {{ totalTime}}</div>
+            <div class="panel-body">Total number of events: {{ totalNumberOfEvents}}</div>
+        </div>
+        <div class="well" *ngFor="let year of activeData">
+            <div (click)="toggleItem(year.name)">
+                <strong>Year: {{year.name}}</strong> < > Work time: {{year.yearSummary.periodString}} < > Number of events: {{year.yearSummary.amount}} 
+                <span class="grey">(Rozwiń)</span>
+            </div>
+            <div *ngIf="toggle[year.name].name">
+            <div class="panel panel-primary margin" *ngFor="let month of year.months">
+                <br><div (click)="toggleItem(year.name, month.name)">
+                    <strong>Month: {{month.name}}</strong> < > Work time: {{month.monthSummary.periodString}} < > Number of events: {{month.monthSummary.amount}}
+                <span class="grey">(Rozwiń)</span><br><br>
+                </div>
+                <div *ngIf="toggle[year.name].months[month.name].name">
+                <div class="panel panel-primary margin" *ngFor="let day of month.days">
+                    <br><div (click)="toggleItem(year.name, month.name, day.name)">
+                        <strong>Day: {{day.name}}</strong> < > Work time: {{day.daySummary.periodString}}  < > Number of events: {{day.daySummary.amount}}
+                    <span class="grey">(Rozwiń)</span><br><br>
+                    </div>
+                    <div *ngIf="toggle[year.name].months[month.name].days[day.name].name">
+                        <div class="well margin" *ngFor="let event of day.events">
+                            <span class="lead">Name: {{event.name }},</span>
+                            Categories: {{ event.categories }},
+                            <span class="text-right"><strong> Description: {{event.description}}</strong></span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div> 
+            </div>
+        </div> 
+    </div>
+</div>
+</div>
+<div id="footer">&copy; Timer - Artur Paszkiewicz</div>

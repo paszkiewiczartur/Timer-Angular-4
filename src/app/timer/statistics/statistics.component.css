@@ -1,0 +1,30 @@
+.greenyellow{
+    background-color: greenyellow;
+}
+.bord{
+    border: solid 2px #428bca;
+    color: #428bca;
+}
+.wide{
+    width: 150px;
+}
+.bottom{
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.margin{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+#footer{
+    position: relative;
+    bottom: 0px;
+    background-color: greenyellow;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+}
+.grey{
+    color: grey;
+}

@@ -1,0 +1,36 @@
+#footer{
+    position: relative;
+    bottom: 0px;
+    background-color: greenyellow;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+}
+.display{
+    visibility: visible !important;
+}
+.infoDiv{
+    position: static;
+    text-align: center;
+    width: 50%;
+    height: 50px;
+    z-index: 2;
+    position: fixed;
+    visibility: hidden;
+    top: 25%;
+    margin: auto;
+    border-radius: 25px;
+    padding-top: 10px;
+    left: 25%;
+}
+.savedDiv{
+    background-color: limegreen;
+    border: solid 5px red;
+    color: black;
+}
+.deletedDiv{
+    background-color: red;
+    color: white;
+    border: solid 5px limegreen;
+}
