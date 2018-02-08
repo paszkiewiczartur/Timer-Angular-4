@@ -1,0 +1,13 @@
+#main{
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+}
+#footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+.distanceFromFooter{
+    padding-bottom: 50px;
+}

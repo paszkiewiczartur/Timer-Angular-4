@@ -8,9 +8,9 @@
             </button>
             <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" (click)="selectName('all')" class="btn btn-block btn-info btn-lg bottom">
+                    <button role="menuitem" tabindex="-1" (click)="selectName('all')" class="btn btn-block btn-info btn-lg bottom">
                         All
-                    </a>
+                    </button>
                 </li>
                 <li role="presentation">
                     <button role="menuitem" tabindex="-1" *ngFor="let item of getNameOfTimestamps()"
@@ -28,9 +28,9 @@
             </button>
             <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" (click)="selectCategory('all')" class="btn btn-block btn-info btn-lg bottom">
+                    <button role="menuitem" tabindex="-1" (click)="selectCategory('all')" class="btn btn-block btn-info btn-lg bottom">
                         All
-                    </a>
+                    </button>
                 </li>
                 <li role="presentation">
                     <button role="menuitem" tabindex="-1" *ngFor="let item of getCategoryOfTimestamps()"

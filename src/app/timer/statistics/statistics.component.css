@@ -1,9 +1,9 @@
 .greenyellow{
-    background-color: greenyellow;
+    background-color: #5cb85c;
 }
 .bord{
-    border: solid 2px #428bca;
-    color: #428bca;
+    border: solid 2px limegreen;
+    color: white;
 }
 .wide{
     width: 150px;
@@ -21,4 +21,7 @@
 }
 .pointer{
     cursor: pointer;
+}
+li button{
+    
 }

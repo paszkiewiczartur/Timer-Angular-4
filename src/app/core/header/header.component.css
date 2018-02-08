@@ -1,8 +1,29 @@
 .navbar-color{
     color: white;
-    background-color: greenyellow;
+    background-color: lightseagreen;
 }
 .padding{
     padding-left: 40px;
     padding-right: 40px;
+}
+li a:hover{
+    font-size: 20px;
+}
+li a{
+    font-weight: bold;
+    color: navy;
+    font-size: 17px;
+}
+#logo{
+    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Arial Black", Gadget, sans-serif;
+    padding: 0px 15px;
+}
+#clock{
+    width: 50px;
+    height: 50px;
+    display: inline;
+    
 }
