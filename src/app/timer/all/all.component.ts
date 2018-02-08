@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
-import { TimestampsService } from '../timestamps.service';
 import { Timestamp } from '../timestamp.model';
+import * as fromTimer from '../store/timer.reducers';
+import * as TimerActions from '../store/timer.actions';
 
 @Component({
   selector: 'app-all',
@@ -11,26 +13,19 @@ import { Timestamp } from '../timestamp.model';
   styleUrls: ['./all.component.css']
 })
 export class AllComponent implements OnInit {
-    timestamps: Timestamp[];
-    subscription: Subscription;
+    timerState: Observable<fromTimer.State>;
     pageSize: number = 3;
     selectedPage: number = 1;
     
-  constructor(private timestampsService: TimestampsService, private router: Router) { }
+  constructor(private store: Store<fromTimer.FeatureState>, private router: Router) { }
 
   ngOnInit() {
-    this.timestampsService.sortTimestamps();
-    this.subscription = this.timestampsService.timestampsChanged.subscribe(
-        (timestamps: Timestamp[]) => {
-            this.timestamps = timestamps;
-        }
-    );
-    this.timestamps = this.timestampsService.getTimestamps();
- }
+    this.timerState = this.store.select('timer');
+  }
  
-    selectPage(newPage: number){
-        this.selectedPage = newPage;
-    }
+  selectPage(newPage: number){
+    this.selectedPage = newPage;
+  }
  
  countPeriod(timestamp: Timestamp){
     let result = "";
@@ -55,12 +50,8 @@ export class AllComponent implements OnInit {
     return result;
  }
  
- refreshTimestamps(){
-    this.timestamps = this.timestampsService.getTimestamps();
- }
- 
- onEdit(index: number){
-    this.timestampsService.edited = index;
+ onEdit(timestamp: Timestamp){
+    this.store.dispatch(new TimerActions.StartEdit(timestamp));
     this.router.navigate(['/timer/edit']);
  }
  

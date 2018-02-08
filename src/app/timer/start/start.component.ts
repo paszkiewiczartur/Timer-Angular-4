@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import 'rxjs/add/operator/take'; 
 
-import { TimestampsService } from '../timestamps.service';
 import { Timestamp } from '../timestamp.model';
+import * as fromTimer from '../store/timer.reducers';
+import * as TimerActions from '../store/timer.actions';
 
 @Component({
   selector: 'app-start',
@@ -14,44 +16,79 @@ import { Timestamp } from '../timestamp.model';
 })
 export class StartComponent implements OnInit {
     addForm: FormGroup;
+    timerState: Observable<fromTimer.State>;
+    nameSuggestions: string[];
+    placeholderCategories: string = "";
     timestamps: Timestamp[];
-    subscription: Subscription;
-    nameSuggestions;
  
-  constructor(private timestampsService: TimestampsService, private router: Router) { }
+  constructor(private store: Store<fromTimer.FeatureState>, private router: Router) { }
 
   ngOnInit() {
-    this.subscription = this.timestampsService.timestampsChanged.subscribe(
-        (timestamps: Timestamp[]) => {
-            this.timestamps = timestamps;
+    this.timerState = this.store.select('timer');
+    this.store.select('timer').subscribe(
+        (timerState: fromTimer.State) => {
+            this.timestamps = timerState.timestamps;
         }
     );
-    this.timestamps = this.timestampsService.getTimestamps();
     this.initForm();
-    this.nameSuggestions = this.getNameOfTimestamps();
+    this.placeholder();
+    this.getNamesOfTimestamps();
+  }
+    
+    private initForm(){
+        let formName = '';
+        let formDescription = '';
+        let formCategories = new FormArray([], this.validatorAtLeastOneCategory);
+        
+        this.addForm = new FormGroup({
+            'name': new FormControl(formName, Validators.required),
+            'description': new FormControl(formDescription, Validators.required),
+            'categories': formCategories
+        });
+        
+        this.onAddCategory();
+    }
+  
+
+  placeholder(){
+    this.store.select('timer').subscribe(
+        (timerState: fromTimer.State) => {
+            let result = "";
+            for(let item of this.getCategoryOfTimestamps(timerState.timestamps)){
+                result += item;
+                result += " ";
+            }
+            this.placeholderCategories = result;
+        }
+    );
   }
   
+    getNamesOfTimestamps(){
+        this.timerState.subscribe(
+            (timerState: fromTimer.State) => {
+                let result: string[] = [];
+                let keys = {};
+                let value: string;
+                for(let item of timerState.timestamps){
+                    if(item['name'] == ''){
+                        value = 'Inne';
+                    } else {
+                        value = item['name'];
+                    }
+                    if(keys[value] == null){
+                        keys[value] = true;
+                        result.push(value);
+                    }
+                }
+                this.nameSuggestions = result;
+            }
+        );
+    }
+    
     chooseName(name: string){
         this.addForm.get('name').setValue(name);
     }
   
-    getNameOfTimestamps(){
-        let result: string[] = [];
-        let keys = {};
-        let value: string;
-        for(let item of this.timestampsService.getTimestamps()){
-            if(item['name'] == ''){
-                value = 'Inne';
-            } else {
-                value = item['name'];
-            }
-            if(keys[value] == null){
-                keys[value] = true;
-                result.push(value);
-            }
-        }
-        return result;
-    }
   
     getCategoryOfTimestamps(timestamps: Timestamp[]){
         let result: string[] = [];
@@ -69,33 +106,10 @@ export class StartComponent implements OnInit {
         }
         return result;        
     }
-  
-  placeholderCategory(){
-    let result = "";
-    for(let item of this.getCategoryOfTimestamps(this.timestampsService.getTimestamps())){
-        result += item;
-        result += " ";
-    }
-    //return this.timestampsService.getTimestamps()[this.timestampsService.getTimestamps().length - 1].categories[0];
-    return result;
-  }
-    private initForm(){
-        let formName = '';
-        let formDescription = '';
-        let formCategories = new FormArray([], this.validatorAtLeastOneCategory);
-        
-        this.addForm = new FormGroup({
-            'name': new FormControl(formName, Validators.required),
-            'description': new FormControl(formDescription, Validators.required),
-            'categories': formCategories
-        });
-        
-        this.onAddCategory();
-    }
     
-    getCategories(addForm) {
-        return addForm.get('categories').controls;
-     }
+    getCategories() {
+        return (<FormArray>this.addForm.get('categories')).controls;
+    }
      
      
     onAddCategory(){
@@ -103,7 +117,14 @@ export class StartComponent implements OnInit {
                 new FormControl(null, Validators.required)
         );
     }
-    
+
+    isToday(timestamp: Timestamp){
+        const today = new Date();
+        return today.getDate() == timestamp.day &&
+                (today.getMonth() + 1) == timestamp.month &&
+                today.getFullYear() == timestamp.year;
+    }
+
     validatorAtLeastOneCategory(formArray: FormArray){
         if(formArray.length == 0){
             return { 'noCategories': true};
@@ -112,19 +133,29 @@ export class StartComponent implements OnInit {
     }
     
     onSubmit(){
-        this.timestampsService.addTimestamp(
+        let today = new Date();
+        let timestamp = new Timestamp(
             this.addForm.value['name'],
             this.addForm.value['description'],
-            this.addForm.value['categories']);
-        this.addForm.reset();
+            this.addForm.value['categories'],
+            today.getHours(),
+            today.getMinutes(),
+            -1,
+            -1,
+            today.getDate(),
+            (today.getMonth() + 1),
+            today.getFullYear()
+        );
+        this.store.dispatch(new TimerActions.AddTimestamp(timestamp));
+        this.onReset();
     }
     
     onReset(){
         this.addForm.reset();
     }
     
-    onEdit(name: string){
-        this.timestampsService.edited = this.timestampsService.getUnfinishedTimestamp(name);
+    onEdit(timestamp: Timestamp){
+        this.store.dispatch(new TimerActions.StartEdit(timestamp));
         this.router.navigate(['/timer/edit']);
     }
     
@@ -132,8 +163,7 @@ export class StartComponent implements OnInit {
         (<FormArray>this.addForm.get('categories')).removeAt(index);
     }
 
-    
     onFinish(name: string){
-        this.timestampsService.finishTimestamp(name);
-    }
+        this.store.dispatch(new TimerActions.FinishNow(name));
+    }    
 }

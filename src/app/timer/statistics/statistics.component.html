@@ -8,7 +8,7 @@
             </button>
             <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" (click)="selectName()" class="btn btn-block btn-info btn-lg bottom">
+                    <a role="menuitem" tabindex="-1" (click)="selectName('all')" class="btn btn-block btn-info btn-lg bottom">
                         All
                     </a>
                 </li>
@@ -28,7 +28,7 @@
             </button>
             <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
                 <li role="presentation">
-                    <a role="menuitem" tabindex="-1" (click)="selectCategory()" class="btn btn-block btn-info btn-lg bottom">
+                    <a role="menuitem" tabindex="-1" (click)="selectCategory('all')" class="btn btn-block btn-info btn-lg bottom">
                         All
                     </a>
                 </li>
@@ -50,19 +50,19 @@
         <div class="well" *ngFor="let year of activeData">
             <div (click)="toggleItem(year.name)">
                 <strong>Year: {{year.name}}</strong> < > Work time: {{year.yearSummary.periodString}} < > Number of events: {{year.yearSummary.amount}} 
-                <span class="grey">(Rozwiń)</span>
+                <span class="grey pointer"> (Show<span class="caret"></span>)</span>
             </div>
             <div *ngIf="toggle[year.name].name">
             <div class="panel panel-primary margin" *ngFor="let month of year.months">
                 <br><div (click)="toggleItem(year.name, month.name)">
                     <strong>Month: {{month.name}}</strong> < > Work time: {{month.monthSummary.periodString}} < > Number of events: {{month.monthSummary.amount}}
-                <span class="grey">(Rozwiń)</span><br><br>
+                <span class="grey pointer"> (Show<span class="caret"></span>)</span><br><br>
                 </div>
                 <div *ngIf="toggle[year.name].months[month.name].name">
                 <div class="panel panel-primary margin" *ngFor="let day of month.days">
                     <br><div (click)="toggleItem(year.name, month.name, day.name)">
                         <strong>Day: {{day.name}}</strong> < > Work time: {{day.daySummary.periodString}}  < > Number of events: {{day.daySummary.amount}}
-                    <span class="grey">(Rozwiń)</span><br><br>
+                <span class="grey pointer"> (Show<span class="caret"></span>)</span><br><br>
                     </div>
                     <div *ngIf="toggle[year.name].months[month.name].days[day.name].name">
                         <div class="well margin" *ngFor="let event of day.events">
@@ -79,4 +79,3 @@
     </div>
 </div>
 </div>
-<div id="footer">&copy; Timer - Artur Paszkiewicz</div>

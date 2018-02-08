@@ -5,8 +5,6 @@ import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@an
 })
 
 export class DropdownDirective{
-   
-
     @HostListener('click') toggleOpen(eventData: Event){
      this.isOpen = !this.isOpen;
     }

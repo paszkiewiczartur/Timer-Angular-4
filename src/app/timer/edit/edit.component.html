@@ -16,7 +16,7 @@
     </div>
     <div class="row">
         <div class="col-xs-12" formArrayName="categories">
-            <div class="row" *ngFor="let category of getCategories(editForm); let i = index" style="margin-top: 10px">
+            <div class="row" *ngFor="let category of getCategories(); let i = index" style="margin-top: 10px">
                 <div class="col-xs-1">
                     <button type="button" class="btn btn-danger" (click)="onDeleteCategory(i)">X</button>
                 </div>
@@ -28,7 +28,7 @@
                     </span>
                 </div>
             </div>
-            <span *ngIf="!editForm.get('categories').valid && getCategories(editForm).length == 0" class="help-block">
+            <span *ngIf="!editForm.get('categories').valid && getCategories().length == 0" class="help-block">
                 <span *ngIf="editForm.get('categories').errors['noCategories']" class="help-block">You should add at least one category!</span>
             </span>
             <hr>
@@ -110,7 +110,7 @@
         </div>
     </div>
     <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!editForm.valid">Save</button>
-    <button class="btn btn-success" (click)="cancelEdit()">Cancel</button><br/><br/>
+    <button class="btn btn-success" (click)="finish()">Cancel</button><br/><br/>
     <button class="btn btn-danger" (click)="deleteTimestamp()">Delete</button>
 </form>
     <div class="savedDiv infoDiv" [ngClass]="{'display': isSaved}">
@@ -121,4 +121,3 @@
     </div>
 </div>
 </div>
-<div id="footer">&copy; Timer - Artur Paszkiewicz</div>

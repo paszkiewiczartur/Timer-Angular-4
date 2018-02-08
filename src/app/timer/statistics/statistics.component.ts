@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+import 'rxjs/add/operator/take'; 
 
-import { TimestampsService } from '../timestamps.service'; 
 import { Timestamp } from '../timestamp.model';
+import * as fromTimer from '../store/timer.reducers';
 
 @Component({
   selector: 'app-statistics',
@@ -14,21 +16,20 @@ export class StatisticsComponent implements OnInit {
     name: string = 'all';
     totalTime: string;
     totalNumberOfEvents: number;
-    timestamps: Timestamp[];
-    subscription: Subscription;
     activeData;
     toggle = {};
+    timestamps: Timestamp[];
+    timerState: Observable<fromTimer.State>;
 
-  constructor(private timestampsService: TimestampsService) { }
+  constructor(private store: Store<fromTimer.FeatureState>) { }
 
   ngOnInit() {
-    this.timestampsService.sortTimestamps();
-      this.subscription = this.timestampsService.timestampsChanged.subscribe(
-        (timestamps: Timestamp[]) => {
-            this.timestamps = timestamps;
+    this.timerState = this.store.select('timer');
+    this.store.select('timer').take(1).subscribe(
+        (timerState: fromTimer.State) => {
+            this.timestamps = timerState.timestamps;
         }
     );
-    this.timestamps = this.timestampsService.getTimestamps();  
     this.getActiveTimestamps('name','all');
     this.addToToggle();
   }
@@ -42,14 +43,6 @@ export class StatisticsComponent implements OnInit {
             this.toggle[yearName].months[monthName].days[dayName].name = !this.toggle[yearName].months[monthName].days[dayName].name;
         }
     }
-
-    /*toggleItem(yearName: string, monthName: string){
-        this.toggle[yearName].months[monthName].name = !this.toggle[yearName].months[monthName].name;
-    }
-    
-    toggleItem(yearName: string, monthName: string, dayName: string){
-        this.toggle[yearName].months[monthName].days[dayName].name = !this.toggle[yearName].months[monthName].days[dayName].name;
-    }*/
 
     addToToggle(){
         for(let year of this.activeData){
@@ -108,15 +101,15 @@ export class StatisticsComponent implements OnInit {
                     if(keys[i] == null){
                         keys[i] = true;
                         result.push(i);
-                    }                    
+                    }                       
                 }
             }
         }
-        return result;        
+        return result;
     }
     
     selectName(name: string){
-        if(name == null){
+        if(name == 'all'){
             this.name = 'all';
         } else {
             this.name = name;
@@ -126,7 +119,7 @@ export class StatisticsComponent implements OnInit {
     }
     
     selectCategory(category: string){
-        if(category == null){
+        if(category == 'all'){
             this.category = 'all';
         } else {
             this.category = category;
@@ -151,76 +144,8 @@ export class StatisticsComponent implements OnInit {
         }
     }
     
-    countPeriod(data: Timestamp){
-        let result: number = 0;
-        let hour: number = 0;
-        let minute: number = 0;
-        if(data.endHour != -1){
-            if(data.endMinute < data.startMinute){
-                hour = data.endHour-data.startHour-1;
-                minute = 60 + data.endMinute - data.startMinute;
-            } else {
-                hour = data.endHour-data.startHour;
-                minute = data.endMinute-data.startMinute;
-            }
-            result = hour * 60 + minute;
-            return result;
-        } else {
-            return 0;
-        }
-    }
-    
-    periodString(data: number){
-        let result: string = "";
-        let hour: number = Math.floor(data/60);
-        let minute: number = data - 60*hour;
-        result += hour.toString();
-        result += ":";
-        if(minute < 10){
-            result += "0";
-        }
-        result += minute.toString();
-        return result;
-    }
-    
-    find(data, index: number): boolean{
-        let found = false;
-        for(let item of data){
-            if(item.name == index){
-                found = true; 
-                break;
-            }
-        }
-        return found;
-    }
-    
-    getTimestampsBy(property: string, categoryOrName: string){
-        if(categoryOrName == 'all'){
-            return this.timestamps;
-        } else{
-            let result: Timestamp[] = [];
-            for(let item of this.timestamps){
-                if(property == 'name'){
-                    if(item[property] == categoryOrName){
-                        result.push(item);
-                    }            
-                } else {
-                    if(item.categories.length == 0 && categoryOrName == 'Inne'){
-                        result.push(item);
-                    }
-                    for(let category of item.categories){
-                        if(category == categoryOrName){
-                            result.push(item);
-                        }
-                    }
-                }
-            }
-            return result;        
-        }
-    }
-    
     getActiveTimestamps(property: string, categoryOrName: string){
-        let data = this.getTimestampsBy(property, categoryOrName);
+        let data: Timestamp[] = this.getTimestampsBy(property, categoryOrName);
         let result = [];
         let resultPeriod: number = 0;
         let resultPeriodString: string = '';
@@ -316,5 +241,73 @@ export class StatisticsComponent implements OnInit {
         this.totalTime = resultPeriodString
         this.activeData = result;
         this.totalNumberOfEvents = resultAmount;
+    }
+    
+    getTimestampsBy(property: string, categoryOrName: string): Timestamp[]{ 
+        if(categoryOrName == 'all'){
+            return this.timestamps;
+        } else{
+            let result: Timestamp[] = [];
+            for(let item of this.timestamps){
+                if(property == 'name'){
+                    if(item[property] == categoryOrName){
+                        result.push(item);
+                    }            
+                } else {
+                    if(item.categories.length == 0 && categoryOrName == 'Inne'){
+                        result.push(item);
+                    }
+                    for(let category of item.categories){
+                        if(category == categoryOrName){
+                            result.push(item);
+                        }
+                    }
+                }
+            }
+            return result; 
+        }
+    }
+    
+    periodString(data: number){
+        let result: string = "";
+        let hour: number = Math.floor(data/60);
+        let minute: number = data - 60*hour;
+        result += hour.toString();
+        result += ":";
+        if(minute < 10){
+            result += "0";
+        }
+        result += minute.toString();
+        return result;
+    }
+    
+    countPeriod(data: Timestamp){
+        let result: number = 0;
+        let hour: number = 0;
+        let minute: number = 0;
+        if(data.endHour != -1){
+            if(data.endMinute < data.startMinute){
+                hour = data.endHour-data.startHour-1;
+                minute = 60 + data.endMinute - data.startMinute;
+            } else {
+                hour = data.endHour-data.startHour;
+                minute = data.endMinute-data.startMinute;
+            }
+            result = hour * 60 + minute;
+            return result;
+        } else {
+            return 0;
+        }
+    }
+    
+    find(data, index: number): boolean{
+        let found = false;
+        for(let item of data){
+            if(item.name == index){
+                found = true; 
+                break;
+            }
+        }
+        return found;
     }
 }

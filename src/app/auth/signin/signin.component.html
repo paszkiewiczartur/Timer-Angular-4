@@ -11,6 +11,9 @@
             </div>
             <button class="btn btn-success" type="submit">Sign In</button>
         </form>    
+        <div *ngIf="(authState | async).failed" >
+            {{(authState | async).failed}}
+        </div>
     </div>
 </div>
 

@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TimerComponent } from './timer.component';
 //import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdAutocompleteModule} from '@angular/material';
-import {MdInputModule} from '@angular/material';
+import {MatAutocompleteModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { SharedModule } from '../shared/shared.module';
 import { AllComponent } from './all/all.component';
@@ -12,11 +14,13 @@ import { StartComponent } from './start/start.component';
 import { StatisticsComponent } from './statistics/statistics.component';
 import { EditComponent } from './edit/edit.component';
 import { TimerRoutingModule } from './timer-routing.module';
-import { UnfinishedPipe } from './unfinished.pipe';
-import { LeadingZeroPipe } from './leadingZero.pipe';
-import { UntilNowPipe } from './untilNow.pipe';
-import { RangePipe } from './range.pipe';
-import { PageCountPipe } from './pageCount.pipe';
+import { UnfinishedPipe } from './pipes/unfinished.pipe';
+import { LeadingZeroPipe } from './pipes/leadingZero.pipe';
+import { UntilNowPipe } from './pipes/untilNow.pipe';
+import { RangePipe } from './pipes/range.pipe';
+import { PageCountPipe } from './pipes/pageCount.pipe';
+import { timerReducer } from './store/timer.reducers';
+import { TimerEffects } from './store/timer.effects';
 
 @NgModule({
     declarations: [
@@ -37,8 +41,10 @@ import { PageCountPipe } from './pageCount.pipe';
         SharedModule,
         TimerRoutingModule,
        // BrowserAnimationsModule,
-        MdAutocompleteModule,
-        MdInputModule
+        MatAutocompleteModule,
+        MatInputModule,
+        StoreModule.forFeature('timer', timerReducer),
+        EffectsModule.forFeature([TimerEffects])
     ]
 })
 export class TimerModule{
