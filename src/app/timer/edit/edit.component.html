@@ -2,14 +2,14 @@
 <div class="panel-body">
 
 <form [formGroup]="editForm">
-        <h1>Edit an event:</h1><br>        
+        <h1 i18n="@@editEditAnEvent">Edit an event:</h1><br>        
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
-                <label class="control-label" for="name">Name:</label><br>
+                <label class="control-label" for="name" i18n="@@editName">Name:</label><br>
                 <input class="form-control" id="name" formControlName="name"/>        
                 <span *ngIf="!editForm.get('name').valid && editForm.get('name').touched" class="help-block">
-                    <span *ngIf="editForm.get('name').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('name').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
             </div>        
         </div>
@@ -21,20 +21,20 @@
                     <button type="button" class="btn btn-danger" (click)="onDeleteCategory(i)">X</button>
                 </div>
                 <div class="col-xs-11">
-                    Category {{ i+1 }}<br>
+                    <span i18n="@@editCategory">Category</span> {{ i+1 }}<br>
                     <input type="text" class="form-control" [formControlName]="i"/>
                     <span *ngIf="!editForm.get('categories').valid && editForm.get('categories').controls[i].touched" class="help-block">
-                        <span *ngIf="editForm.get('categories').controls[i].errors['required']" class="help-block">This is required!</span>
+                        <span *ngIf="editForm.get('categories').controls[i].errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                     </span>
                 </div>
             </div>
             <span *ngIf="!editForm.get('categories').valid && getCategories().length == 0" class="help-block">
-                <span *ngIf="editForm.get('categories').errors['noCategories']" class="help-block">You should add at least one category!</span>
+                <span *ngIf="editForm.get('categories').errors['noCategories']" class="help-block" i18n="@@editRequiredOneCategory">You should add at least one category!</span>
             </span>
             <hr>
             <div class="row">
                 <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" (click)="onAddCategory()">Add Category</button>
+                    <button type="button" class="btn btn-success" (click)="onAddCategory()" i18n="@@editAddCategory">Add Category</button>
                 </div>
             </div>
         </div>
@@ -42,33 +42,33 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
-                <label class="control-label" for="description">Description:</label><br>
+                <label class="control-label" for="description" i18n="@@editDescription">Description:</label><br>
                 <textarea class="form-control" id="description" formControlName="description"></textarea>
                 <span *ngIf="!editForm.get('description').valid && editForm.get('description').touched" class="help-block">
-                    <span *ngIf="editForm.get('description').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('description').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
             </div>
         </div>
     </div>
     <div class="row">
             <div class="form-group">
-                    <label>Date:</label><br>
+                    <label i18n="@@editDate">Date:</label><br>
                 <div class="col-md-2">
-                    Day:<input class="form-control" formControlName="day" /> 
+                    <span i18n="@@editDay">Day:</span><input class="form-control" formControlName="day" /> 
                 <span *ngIf="!editForm.get('day').valid && editForm.get('day').touched" class="help-block">
-                    <span *ngIf="editForm.get('day').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('day').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
                 </div>
                 <div class="col-md-2">
-                    Month:<input class="form-control" formControlName="month" /> 
+                    <span i18n="@@editMonth">Month:</span><input class="form-control" formControlName="month" /> 
                 <span *ngIf="!editForm.get('month').valid && editForm.get('month').touched" class="help-block">
-                    <span *ngIf="editForm.get('month').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('month').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
                 </div>
                 <div class="col-md-8">
-                    Year:<input class="form-control" formControlName="year" />
+                    <span i18n="@@editYear">Year:</span><input class="form-control" formControlName="year" />
                 <span *ngIf="!editForm.get('year').valid && editForm.get('year').touched" class="help-block">
-                    <span *ngIf="editForm.get('year').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('year').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
                 </div>
         </div>
@@ -76,17 +76,17 @@
     <div class="row">
         <div class="form-group">
             <div class="col-md-2">
-                <label class="control-label">Start hour:</label><br/>
+                <label class="control-label" i18n="@@editStartHour">Start hour:</label><br/>
                 <input class="form-control" formControlName="startHour"/>
                 <span *ngIf="!editForm.get('startHour').valid && editForm.get('startHour').touched" class="help-block">
-                    <span *ngIf="editForm.get('startHour').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('startHour').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
             </div>
             <div class="col-md-2">
-                <label class="control-label">Start minute:</label>
+                <label class="control-label" i18n="@@editStartMinute">Start minute:</label>
                 <input class="form-control" formControlName="startMinute" />
                 <span *ngIf="!editForm.get('startMinute').valid && editForm.get('startMinute').touched" class="help-block">
-                    <span *ngIf="editForm.get('startMinute').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('startMinute').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
             </div>
         </div>
@@ -94,30 +94,31 @@
     <div class="row">
         <div class="form-group">
             <div class="col-md-2">
-                <label class="control-label">Finish hour:</label><br/>
+                <label class="control-label" i18n="@@editFinishHour">Finish hour:</label><br/>
                 <input class="form-control" formControlName="endHour"/> 
                 <span *ngIf="!editForm.get('endHour').valid && editForm.get('endHour').touched" class="help-block">
-                    <span *ngIf="editForm.get('endHour').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('endHour').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
             </div>
             <div class="col-md-2">
-                <label class="control-label">Finish minute:</label>
+                <label class="control-label" i18n="@@editFinishMinute">Finish minute:</label>
                 <input class="form-control" formControlName="endMinute" />
                 <span *ngIf="!editForm.get('endMinute').valid && editForm.get('endMinute').touched" class="help-block">
-                    <span *ngIf="editForm.get('endMinute').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="editForm.get('endMinute').errors['required']" class="help-block" i18n="@@editRequired">This is required!</span>
                 </span>
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!editForm.valid">Save</button>
-    <button class="btn btn-success" (click)="finish()">Cancel</button><br/><br/>
-    <button class="btn btn-danger" (click)="deleteTimestamp()">Delete</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!editForm.valid" i18n="@@editSave">Save</button>
+    <button class="btn btn-success" (click)="finish()" i18n="@@editCancel">Cancel</button><br/><br/>
+    <button class="btn btn-danger" (click)="deleteTimestamp()" i18n="@@editDelete">Delete</button>
 </form>
     <div class="savedDiv infoDiv" [ngClass]="{'display': isSaved}">
-        Changes have been saved!
+        <span i18n="@@editChangesSaved">Changes have been saved!</span>
     </div>
     <div class="deletedDiv infoDiv" [ngClass]="{'display': isDeleted}">
-        Event has been deleted!
+        <span i18n="@@editEventSaved">Event has been deleted!</span>
     </div>
 </div>
 </div>
+<span style="visibility: hidden" #confirm i18n="@@editDiscard">Do you want to discard the changes?</span>

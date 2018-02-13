@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ElementRef, Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
@@ -19,7 +19,7 @@ export class EditComponent implements OnInit, CanComponentDeactivate, OnDestroy 
     editForm: FormGroup;
     isSaved: boolean = false;
     isDeleted: boolean = false;
-    
+    @ViewChild('confirm') confirmTranslation : ElementRef;
     
   constructor(private store: Store<fromTimer.FeatureState>, private router: Router) { }
 
@@ -102,7 +102,7 @@ export class EditComponent implements OnInit, CanComponentDeactivate, OnDestroy 
         if(this.isSaved){
             return true;
         } else{
-            let con = confirm("Do you want to discard the changes?");
+            let con = confirm(this.confirmTranslation.nativeElement.textContent);
             if (con == true) {
                 return true;
             } else {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -16,7 +16,8 @@ export class AllComponent implements OnInit {
     timerState: Observable<fromTimer.State>;
     pageSize: number = 3;
     selectedPage: number = 1;
-    
+    @ViewChild('notFinished') notFinishedTranslation : ElementRef;
+ 
   constructor(private store: Store<fromTimer.FeatureState>, private router: Router) { }
 
   ngOnInit() {
@@ -45,7 +46,7 @@ export class AllComponent implements OnInit {
         }
         result += resultMinute.toString();
     } else {
-        result = "Not finished";
+        result = this.notFinishedTranslation.nativeElement.textContent;
     }   
     return result;
  }

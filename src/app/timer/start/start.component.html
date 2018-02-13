@@ -2,11 +2,11 @@
 <div class="panel-body">
 
 <form [formGroup]="addForm" *ngIf="(timestamps | unfinished).length <= 0">
-        <h1>Add an event:</h1><br>        
+        <h1 i18n="@@startAddAnEvent">Add an event:</h1><br>        
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
-                <label class="control-label" for="name"><h2>Name: </h2></label>
+                <label class="control-label" for="name"><h2 i18n="@@startName">Name:</h2> </label>
                 <mat-input-container>
                     <input class="form-control" type="text" matInput formControlName="name" id="name" [matAutocomplete]="auto">
                 </mat-input-container>
@@ -18,7 +18,7 @@
                 </mat-autocomplete>    
                     
                 <span *ngIf="!addForm.get('name').valid && addForm.get('name').touched" class="help-block">
-                    <span *ngIf="addForm.get('name').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="addForm.get('name').errors['required']" class="help-block" i18n="@@startRequired">This is required!</span>
                 </span>
             </div>        
         </div>
@@ -30,21 +30,21 @@
                     <button type="button" class="btn btn-danger" (click)="onDeleteCategory(i)">X</button>
                 </div>
                 <div class="col-xs-11">
-                    Category {{ i+1 }}<br>
+                    <span i18n="@@startCategory">Category</span> {{ i+1 }}<br>
                     <input type="text" class="form-control" [formControlName]="i" [placeholder]="placeholderCategories" />
                     <span *ngIf="!addForm.get('categories').controls[i].valid && addForm.get('categories').controls[i].touched" 
                           class="help-block">
-                        <span *ngIf="addForm.get('categories').controls[i].errors['required']" class="help-block">This is required!</span>
+                        <span *ngIf="addForm.get('categories').controls[i].errors['required']" class="help-block" i18n="@@startRequired">This is required!</span>
                     </span>
                 </div>
             </div>
             <span *ngIf="!addForm.get('categories').valid && getCategories().length == 0" class="help-block">
-                <span *ngIf="addForm.get('categories').errors['noCategories']" class="help-block">You should add at least one category!</span>
+                <span *ngIf="addForm.get('categories').errors['noCategories']" class="help-block" i18n="@@startOneCategory">You should add at least one category!</span>
             </span>
             <hr>
             <div class="row">
                 <div class="col-xs-12">
-                    <button type="button" class="btn btn-success" (click)="onAddCategory()">Add Category</button>
+                    <button type="button" class="btn btn-success" (click)="onAddCategory()" i18n="@@startAddCategory">Add Category</button><br><br>
                 </div>
             </div>
         </div>
@@ -52,33 +52,33 @@
     <div class="row">
         <div class="col-xs-12">
             <div class="form-group">
-                <label class="control-label" for="description">Description:</label><br>
+                <label class="control-label" for="description" i18n="@@startDescription">Description:</label><br>
                 <textarea class="form-control" id="description" formControlName="description"></textarea>
                 <span *ngIf="!addForm.get('description').valid && addForm.get('description').touched" class="help-block">
-                    <span *ngIf="addForm.get('description').errors['required']" class="help-block">This is required!</span>
+                    <span *ngIf="addForm.get('description').errors['required']" class="help-block" i18n="@@startRequired">This is required!</span>
                 </span>
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!addForm.valid">Save</button>
-    <button class="btn btn-success" (click)="onReset()">Reset</button>
+    <button type="submit" class="btn btn-success" (click)="onSubmit()" [disabled]="!addForm.valid" i18n="@@startSave">Save</button>
+    <button class="btn btn-success" (click)="onReset()" i18n="@@startReset">Reset</button>
 </form>
     <br/>
     <br/>
     
     <div *ngIf="((timerState | async).timestamps | unfinished).length > 0">
-        <h1>Firstly, finish the events to be able to add a new one.</h1>
-        <h2>Unfinished events:</h2><br>
+        <h1 i18n="@@startFirstly">Firstly, finish the events to be able to add a new one.</h1>
+        <h2 i18n="@@startUnfinished">Unfinished events:</h2><br>
     <table class="table table-striped table-bordered">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Categories</th>
-                <th>Date</th>
-                <th>Start time</th>
-                <th>Status</th>
-                <th>Length</th>
-                <th class="text-center">Options</th>
+                <th i18n="@@startName">Name</th>
+                <th i18n="@@startCategories">Categories</th>
+                <th i18n="@@startDate">Date</th>
+                <th i18n="@@startStartTime">Start time</th>
+                <th i18n="@@startStatus">Status</th>
+                <th i18n="@@startLength">Length</th>
+                <th class="text-center" i18n="@@startOptions">Options</th>
             </tr>
         </thead>
         <tbody>
@@ -87,15 +87,13 @@
                 <td>{{item.categories}}</td>
                 <td class="text-right">{{item.day}}.{{item.month | leadingZero}}.{{item.year}}</td>
                 <td class="text-right">{{item.startHour}}:{{item.startMinute | leadingZero}}</td>
-                <td>Not finished</td>
+                <td i18n="@@startNotFinished">Not finished</td>
                 <td>{{ item | untilNow }}</td>
                 <td class="text-center">
-                    <button class="btn btn-xs btn-success" (click)="onEdit(item)">Edit</button>
+                    <button class="btn btn-xs btn-success" (click)="onEdit(item)" i18n="@@startEdit">Edit</button>
                     <button class="btn btn-xs btn-success" 
                             *ngIf="isToday(item)"
-                            (click)="onFinish(item.name)">
-                        Finish now
-                    </button>
+                            (click)="onFinish(item.name)" i18n="@@startFinishNow">Finish now</button>
                 </td>
             </tr>
         </tbody>

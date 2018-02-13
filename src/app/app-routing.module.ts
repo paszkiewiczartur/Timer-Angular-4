@@ -6,7 +6,7 @@ import { TimerComponent } from './timer/timer.component';
 
 const appRoutes: Routes = [
     { path: '', component: HomeComponent },
-    { path: 'timer', loadChildren: './timer/timer.module#TimerModule'},
+    { path: 'timer', loadChildren: './timer/timer.module#TimerModule'}
 ];
 
 @NgModule({

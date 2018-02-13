@@ -2,15 +2,15 @@
 <div class="row">
     <div class="col-xs-2">
             <div class="dropdown" appDropdown>
-            <button class="btn greenyellow bord btn-lg dropdown-toggle wide" type="button" id="menu1" data-toggle="dropdown">
-                Name
+            <button class="btn greenyellow bord btn-lg dropdown-toggle wide"
+                    type="button" id="menu1" data-toggle="dropdown">
+                <span i18n="@@statName">Name</span>
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
                 <li role="presentation">
-                    <button role="menuitem" tabindex="-1" (click)="selectName('all')" class="btn btn-block btn-info btn-lg bottom">
-                        All
-                    </button>
+                    <button role="menuitem" tabindex="-1" (click)="selectName('all')" 
+                            class="btn btn-block btn-info btn-lg bottom" i18n="@@statAll">All</button>
                 </li>
                 <li role="presentation">
                     <button role="menuitem" tabindex="-1" *ngFor="let item of getNameOfTimestamps()"
@@ -22,15 +22,15 @@
             </ul>
             </div>
             <div class="dropdown" appDropdown>
-            <button class="btn greenyellow bord btn-lg dropdown-toggle wide" type="button" id="menu1" data-toggle="dropdown">
-                Category
+            <button class="btn greenyellow bord btn-lg dropdown-toggle wide" 
+                    type="button" id="menu1" data-toggle="dropdown">
+                <span i18n="@@statCategory">Category</span>
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu greenyellow" role="menu" aria-labelledby="menu1">
                 <li role="presentation">
-                    <button role="menuitem" tabindex="-1" (click)="selectCategory('all')" class="btn btn-block btn-info btn-lg bottom">
-                        All
-                    </button>
+                    <button role="menuitem" tabindex="-1" (click)="selectCategory('all')" 
+                            class="btn btn-block btn-info btn-lg bottom" i18n="@@statAll">All</button>
                 </li>
                 <li role="presentation">
                     <button role="menuitem" tabindex="-1" *ngFor="let item of getCategoryOfTimestamps()"
@@ -44,31 +44,31 @@
     </div>
     <div class="col-xs-10">
         <div class="panel panel-warning">
-            <div class="panel-heading">Total work time: {{ totalTime}}</div>
-            <div class="panel-body">Total number of events: {{ totalNumberOfEvents}}</div>
+            <div class="panel-heading"><span i18n="@@statTotalWorkTime">Total work time</span>: {{ totalTime}}</div>
+            <div class="panel-body"><span i18n="@@statTotalNumberOfEvents">Total number of events</span>: {{ totalNumberOfEvents}}</div>
         </div>
         <div class="well" *ngFor="let year of activeData">
             <div (click)="toggleItem(year.name)">
-                <strong>Year: {{year.name}}</strong> < > Work time: {{year.yearSummary.periodString}} < > Number of events: {{year.yearSummary.amount}} 
-                <span class="grey pointer"> (Show<span class="caret"></span>)</span>
+                <strong><span i18n="@@statYear">Year</span>: {{year.name}}</strong> < > <span i18n="@@statWorkTime">Work time</span>: {{year.yearSummary.periodString}} < > <span i18n="@@statNumberOfEvents">Number of events</span>: {{year.yearSummary.amount}} 
+                <span class="grey pointer"> (<span i18n="@@statShow">Show</span><span class="caret"></span>)</span>
             </div>
             <div *ngIf="toggle[year.name].name">
             <div class="panel panel-primary margin" *ngFor="let month of year.months">
                 <br><div (click)="toggleItem(year.name, month.name)">
-                    <strong>Month: {{month.name}}</strong> < > Work time: {{month.monthSummary.periodString}} < > Number of events: {{month.monthSummary.amount}}
-                <span class="grey pointer"> (Show<span class="caret"></span>)</span><br><br>
+                <strong><span i18n="@@statMonth">Month</span>: {{month.name}}</strong> < > <span i18n="@@statWorkTime">Work time</span>: {{month.monthSummary.periodString}} < > <span i18n="@@statNumberOfEvents">Number of events</span>: {{month.monthSummary.amount}}
+                <span class="grey pointer"> (<span i18n="@@statShow">Show</span><span class="caret"></span>)</span><br><br>
                 </div>
                 <div *ngIf="toggle[year.name].months[month.name].name">
                 <div class="panel panel-primary margin" *ngFor="let day of month.days">
                     <br><div (click)="toggleItem(year.name, month.name, day.name)">
-                        <strong>Day: {{day.name}}</strong> < > Work time: {{day.daySummary.periodString}}  < > Number of events: {{day.daySummary.amount}}
-                <span class="grey pointer"> (Show<span class="caret"></span>)</span><br><br>
+                    <strong><span i18n="@@statDay">Day</span>: {{day.name}}</strong> < > <span i18n="@@statWorkTime">Work time</span>: {{day.daySummary.periodString}}  < > <span i18n="@@statNumberOfEvents">Number of events</span>: {{day.daySummary.amount}}
+                    <span class="grey pointer"> (<span i18n="@@statShow">Show</span><span class="caret"></span>)</span><br><br>
                     </div>
                     <div *ngIf="toggle[year.name].months[month.name].days[day.name].name">
                         <div class="well margin" *ngFor="let event of day.events">
-                            <span class="lead">Name: {{event.name }},</span>
-                            Categories: {{ event.categories }},
-                            <span class="text-right"><strong> Description: {{event.description}}</strong></span>
+                            <span class="lead"><span i18n="@@statName">Name</span>: {{event.name }},</span>
+                            <span i18n="@@statCategories">Categories</span>: {{ event.categories }},
+                            <div style="display: inline;" class="pull-right"><strong> <span i18n="@@statDescription">Description</span>: {{event.description}}</strong></div>
                         </div>
                     </div>
                 </div>
