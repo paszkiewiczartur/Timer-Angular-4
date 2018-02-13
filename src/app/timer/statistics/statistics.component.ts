@@ -18,7 +18,7 @@ export class StatisticsComponent implements OnInit {
     totalNumberOfEvents: number;
     activeData;
     toggle = {};
-    timestamps: Timestamp[];
+    timestamps: Array<Timestamp>;
     timerState: Observable<fromTimer.State>;
 
   constructor(private store: Store<fromTimer.FeatureState>) { }
@@ -68,7 +68,7 @@ export class StatisticsComponent implements OnInit {
     }
 
     getNameOfTimestamps(){
-        let result: string[] = [];
+        let result: Array<string> = [];
         let keys = {};
         let value: string;
         for(let item of this.timestamps){
@@ -86,7 +86,7 @@ export class StatisticsComponent implements OnInit {
     }
     
     getCategoryOfTimestamps(){
-        let result: string[] = [];
+        let result: Array<string> = [];
         let keys = {};
         let value: string;
         for(let item of this.timestamps){
@@ -108,7 +108,7 @@ export class StatisticsComponent implements OnInit {
         return result;
     }
     
-    selectName(name: string){
+    selectName(name: string = 'all'){
         if(name == 'all'){
             this.name = 'all';
         } else {
@@ -118,7 +118,7 @@ export class StatisticsComponent implements OnInit {
         this.addToToggle();
     }
     
-    selectCategory(category: string){
+    selectCategory(category: string = 'all'){
         if(category == 'all'){
             this.category = 'all';
         } else {
@@ -145,7 +145,7 @@ export class StatisticsComponent implements OnInit {
     }
     
     getActiveTimestamps(property: string, categoryOrName: string){
-        let data: Timestamp[] = this.getTimestampsBy(property, categoryOrName);
+        let data: Array<Timestamp> = this.getTimestampsBy(property, categoryOrName);
         let result = [];
         let resultPeriod: number = 0;
         let resultPeriodString: string = '';
@@ -243,11 +243,11 @@ export class StatisticsComponent implements OnInit {
         this.totalNumberOfEvents = resultAmount;
     }
     
-    getTimestampsBy(property: string, categoryOrName: string): Timestamp[]{ 
+    getTimestampsBy(property: string, categoryOrName: string): Array<Timestamp>{ 
         if(categoryOrName == 'all'){
             return this.timestamps;
         } else{
-            let result: Timestamp[] = [];
+            let result: Array<Timestamp> = [];
             for(let item of this.timestamps){
                 if(property == 'name'){
                     if(item[property] == categoryOrName){

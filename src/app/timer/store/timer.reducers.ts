@@ -7,7 +7,7 @@ export interface FeatureState extends fromApp.AppState {
 }
 
 export interface State {
-  timestamps: Timestamp[];
+  timestamps: Array<Timestamp>;
   editedTimestamp: Timestamp;
   editedTimestampIndex: number;
 }

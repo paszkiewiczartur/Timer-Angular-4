@@ -17,9 +17,9 @@ import * as TimerActions from '../store/timer.actions';
 export class StartComponent implements OnInit {
     addForm: FormGroup;
     timerState: Observable<fromTimer.State>;
-    nameSuggestions: string[];
+    nameSuggestions: Array<string>;
     placeholderCategories: string = "";
-    timestamps: Timestamp[];
+    timestamps: Array<Timestamp>;
  
   constructor(private store: Store<fromTimer.FeatureState>, private router: Router) { }
 
@@ -66,7 +66,7 @@ export class StartComponent implements OnInit {
     getNamesOfTimestamps(){
         this.timerState.subscribe(
             (timerState: fromTimer.State) => {
-                let result: string[] = [];
+                let result: Array<string>= [];
                 let keys = {};
                 let value: string;
                 for(let item of timerState.timestamps){
@@ -90,8 +90,8 @@ export class StartComponent implements OnInit {
     }
   
   
-    getCategoryOfTimestamps(timestamps: Timestamp[]){
-        let result: string[] = [];
+    getCategoryOfTimestamps(timestamps: Array<Timestamp>){
+        let result: Array<string> = [];
         let keys = {};
         let value: string;
         for(let item of timestamps){

@@ -16,7 +16,7 @@ export class TimerEffects {
   timestampsFetch = this.actions$
     .ofType(TimerActions.FETCH_TIMESTAMPS)
     .switchMap((action: TimerActions.FetchTimestamps) => {
-      return this.httpClient.get<Timestamp[]>('https://timer-ced0b.firebaseio.com/data.json', {
+      return this.httpClient.get<Array<Timestamp>>('https://timer-ced0b.firebaseio.com/data.json', {
         observe: 'body',
         responseType: 'json'
       })
