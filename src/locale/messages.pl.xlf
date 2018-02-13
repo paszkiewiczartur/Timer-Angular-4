@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="pl" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="headerStart" datatype="html">
+        <source>Start</source>
+        <target>Start</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerList" datatype="html">
+        <source>List</source>
+        <target>Lista</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerStatistics" datatype="html">
+        <source>Statistics</source>
+        <target>Statystyki</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerLanguage" datatype="html">
+        <source>Language</source>
+        <target>Język</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">16</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerEnglish" datatype="html">
+        <source>English</source>
+        <target>Angielski</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">18</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerPolish" datatype="html">
+        <source>Polish</source>
+        <target>Polski</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerLogout" datatype="html">
+        <source>Logout</source>
+        <target>Wyloguj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerRegister" datatype="html">
+        <source>Register</source>
+        <target>Zarejestruj się</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerLogin" datatype="html">
+        <source>Log In</source>
+        <target>Zaloguj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">28</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerManage" datatype="html">
+        <source>Manage</source>
+        <target>Zarządzaj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerSave" datatype="html">
+        <source>Save Data</source>
+        <target>Zapisz dane</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="headerFetch" datatype="html">
+        <source>Fetch Data</source>
+        <target>Pobierz dane</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/header/header.component.ts</context>
+          <context context-type="linenumber">34</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="homeHeader" datatype="html">
+        <source>Welcome to the Timer Application!</source>
+        <target>Witaj w aplikacji Timer!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/home/home.component.ts</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="homeDescriptionBegin" datatype="html">
+        <source>This is an application designed to store information about</source>
+        <target>Ta aplikacja została zaprojektowana w celu gromadzenia informacji o</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/home/home.component.ts</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="homeDescriptionEnd" datatype="html">
+        <source>your work time</source>
+        <target>Twoim czasie pracy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/core/home/home.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allName" datatype="html">
+        <source>Name</source>
+        <target>Nazwa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">6</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allCategories" datatype="html">
+        <source>Categories</source>
+        <target>Kategorie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allDescription" datatype="html">
+        <source>Description</source>
+        <target>Opis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">8</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allDate" datatype="html">
+        <source>Date</source>
+        <target>Data</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allStartTime" datatype="html">
+        <source>Start time</source>
+        <target>Czas rozpoczęcia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allFinishTime" datatype="html">
+        <source>Finish time</source>
+        <target>Czas zakończenia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allLength" datatype="html">
+        <source>Length</source>
+        <target>Długość</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allOptions" datatype="html">
+        <source>Options</source>
+        <target>Opcje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allEdit" datatype="html">
+        <source>Edit</source>
+        <target>Edytuj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="allNotFinished" datatype="html">
+        <source>Not finished</source>
+        <target>Niezakończone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/all/all.component.ts</context>
+          <context context-type="linenumber">39</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startAddAnEvent" datatype="html">
+        <source>Add an event:</source>
+        <target>Dodaj wydarzenie:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startName" datatype="html">
+        <source>Name:</source>
+        <target>Nazwa:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">75</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startRequired" datatype="html">
+        <source>This is required!</source>
+        <target>To pole jest obowiązkowe!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">21</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startCategory" datatype="html">
+        <source>Category</source>
+        <target>Kategoria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startOneCategory" datatype="html">
+        <source>You should add at least one category!</source>
+        <target>Musisz dodać co najmniej jedną kategorię!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">42</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startAddCategory" datatype="html">
+        <source>Add Category</source>
+        <target>Dodaj kategorię</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startDescription" datatype="html">
+        <source>Description:</source>
+        <target>Opis:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startSave" datatype="html">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startReset" datatype="html">
+        <source>Reset</source>
+        <target>Resetuj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startFirstly" datatype="html">
+        <source>Firstly, finish the events to be able to add a new one.</source>
+        <target>Najpierw zakończ wydarzenia, by móc dodać nowe.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startUnfinished" datatype="html">
+        <source>Unfinished events:</source>
+        <target>Niezakończone wydarzenia:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startCategories" datatype="html">
+        <source>Categories</source>
+        <target>Kategorie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">76</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startDate" datatype="html">
+        <source>Date</source>
+        <target>Data</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">77</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startStartTime" datatype="html">
+        <source>Start time</source>
+        <target>Czas rozpoczęcia</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">78</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startStatus" datatype="html">
+        <source>Status</source>
+        <target>Status</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startLength" datatype="html">
+        <source>Length</source>
+        <target>Długość</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">80</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startOptions" datatype="html">
+        <source>Options</source>
+        <target>Opcje</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">81</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startNotFinished" datatype="html">
+        <source>Not finished</source>
+        <target>Niezakończone</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">90</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startEdit" datatype="html">
+        <source>Edit</source>
+        <target>Edytuj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">93</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="startFinishNow" datatype="html">
+        <source>Finish now</source>
+        <target>Zakończ teraz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/start/start.component.ts</context>
+          <context context-type="linenumber">96</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statName" datatype="html">
+        <source>Name</source>
+        <target>Nazwa</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statAll" datatype="html">
+        <source>All</source>
+        <target>Wszystkie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">33</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statCategory" datatype="html">
+        <source>Category</source>
+        <target>Kategoria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statTotalWorkTime" datatype="html">
+        <source>Total work time</source>
+        <target>Całkowity czas pracy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">47</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statTotalNumberOfEvents" datatype="html">
+        <source>Total number of events</source>
+        <target>Całkowita liczba wydarzeń</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statYear" datatype="html">
+        <source>Year</source>
+        <target>Rok</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statWorkTime" datatype="html">
+        <source>Work time</source>
+        <target>Czas pracy</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statNumberOfEvents" datatype="html">
+        <source>Number of events</source>
+        <target>Liczba wydarzeń</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">52</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statShow" datatype="html">
+        <source>Show</source>
+        <target>Pokaż</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">53</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statMonth" datatype="html">
+        <source>Month</source>
+        <target>Miesiąc</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">58</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statDay" datatype="html">
+        <source>Day</source>
+        <target>Dzień</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">64</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statCategories" datatype="html">
+        <source>Categories</source>
+        <target>Kategorie</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">70</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="statDescription" datatype="html">
+        <source>Description</source>
+        <target>Opis</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/statistics/statistics.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editEditAnEvent" datatype="html">
+        <source>Edit an event:</source>
+        <target>Edytuj wydarzenie:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editName" datatype="html">
+        <source>Name:</source>
+        <target>Nazwa:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editRequired" datatype="html">
+        <source>This is required!</source>
+        <target>To pole jest obowiązkowe!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">27</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">48</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">65</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">71</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">82</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">89</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">100</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">107</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editCategory" datatype="html">
+        <source>Category</source>
+        <target>Kategoria</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editRequiredOneCategory" datatype="html">
+        <source>You should add at least one category!</source>
+        <target>Musisz dodać co najmniej jedną kategorię!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">32</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editAddCategory" datatype="html">
+        <source>Add Category</source>
+        <target>Dodaj kategorię</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">37</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editDescription" datatype="html">
+        <source>Description:</source>
+        <target>Opis:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">45</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editDate" datatype="html">
+        <source>Date:</source>
+        <target>Data:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">55</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editDay" datatype="html">
+        <source>Day:</source>
+        <target>Dzień:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">57</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editMonth" datatype="html">
+        <source>Month:</source>
+        <target>Miesiąc:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">63</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editYear" datatype="html">
+        <source>Year:</source>
+        <target>Rok:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">69</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editStartHour" datatype="html">
+        <source>Start hour:</source>
+        <target>Godzina rozpoczęcia:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editStartMinute" datatype="html">
+        <source>Start minute:</source>
+        <target>Minuta rozpoczęcia:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editFinishHour" datatype="html">
+        <source>Finish hour:</source>
+        <target>Godzina zakończenia:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">97</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editFinishMinute" datatype="html">
+        <source>Finish minute:</source>
+        <target>Minuta zakończenia:</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">104</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editSave" datatype="html">
+        <source>Save</source>
+        <target>Zapisz</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">112</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editCancel" datatype="html">
+        <source>Cancel</source>
+        <target>Anuluj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">113</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editDelete" datatype="html">
+        <source>Delete</source>
+        <target>Usuń</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">114</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editChangesSaved" datatype="html">
+        <source>Changes have been saved!</source>
+        <target>Zmiany zostały zapisane!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">117</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editEventSaved" datatype="html">
+        <source>Event has been deleted!</source>
+        <target>Wydarzenie zostało usunięte!</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">120</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="editDiscard" datatype="html">
+        <source>Do you want to discard the changes?</source>
+        <target>Czy chcesz porzucić zmiany?</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/timer/edit/edit.component.ts</context>
+          <context context-type="linenumber">124</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="siginEmail" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth/signin/signin.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signinPassword" datatype="html">
+        <source>Password</source>
+        <target>Hasło</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth/signin/signin.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signinSignin" datatype="html">
+        <source>Sign In</source>
+        <target>Zaloguj</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth/signin/signin.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signupEmail" datatype="html">
+        <source>Email</source>
+        <target>Email</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth/signup/signup.component.ts</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signupPassword" datatype="html">
+        <source>Password</source>
+        <target>Hasło</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth/signup/signup.component.ts</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="signupSignup" datatype="html">
+        <source>Sign Up</source>
+        <target>Zarejestruj się</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/auth/signup/signup.component.ts</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
